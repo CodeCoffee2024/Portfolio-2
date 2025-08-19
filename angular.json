@@ -18,7 +18,7 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/portfolio-2",
-            "baseHref": "Portfolio-2.git",
+            "baseHref": "/Porfolio-2/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
