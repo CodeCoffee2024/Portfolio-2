@@ -2,7 +2,7 @@ name: Deploy Official Portfolio
 on:
   push:
     branches:
-      - main  # Runs when pushing to main branch
+      - master
 
 jobs:
   build-deploy:
