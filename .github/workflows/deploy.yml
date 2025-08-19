@@ -1,32 +1,30 @@
-name: Deploy Official Portfolio
+name: Deploy Angular app to GitHub Pages
+
 on:
   push:
     branches:
-      - master
-
-permissions:
-  contents: write   # 👈 this is important!
+      - master   # trigger when you push to master
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
 
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href /Portfolio-2/
+        run: npm run build -- --configuration production --base-href "/Porfolio-2/"
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: dist/portfolio-2
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/portfolio-2
