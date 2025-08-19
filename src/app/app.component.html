@@ -1,0 +1,126 @@
+<div class="container">
+  <main class="row justify-content-center mt-4">
+    <article class="col-lg-7 col-md-10 col-12">
+
+      <!-- Logo Scroller -->
+      <section class="row mt-3" aria-label="Technology Logos">
+        <div class="col-12">
+          <div class="scroller">
+            <div class="scroller-track">
+              <div class="logo" *ngFor="let logo of logos; let i = index">
+                <img [src]="logo" [alt]="techNames[i]" loading="lazy" />
+              </div>
+              <div class="logo" *ngFor="let logo of logos; let i = index">
+                <img [src]="logo" [alt]="techNames[i]" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile Section -->
+      <header class="row mt-3 align-items-center text-center text-md-start">
+        <div class="col-md-6 d-flex flex-column flex-md-row align-items-center">
+          <img src="assets/img.webp" alt="Profile picture of Code Coffee"
+               class="border rounded mb-2 mb-md-0"
+               width="70" height="70" loading="lazy" />
+          <div class="title ms-md-2">
+            <h1 class="fs-5 fw-bold mb-0">Code Coffee</h1>
+            <p class="color-secondary mb-0">Software Engineer</p>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2 mt-md-0">
+          <a href="tel:+1234567890" class="btn btn-success border rounded">
+            <i class="bi bi-phone me-2"></i>Contact Me
+          </a>
+    <button class="theme-toggle" (click)="switchTheme()">
+      {{ isDarkMode() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+    </button>
+        </div>
+      </header>
+
+      <!-- About Me & Links -->
+      <section class="row mt-4">
+        <div class="col-md-8 col-12 mb-3 mb-md-0">
+          <h2 class="fs-4 fw-bold">About Me</h2>
+          <p class="color-secondary">
+            I’m a Software Developer with 6 years of experience building web applications
+            across e-commerce, ERP, distribution, and insurance. Skilled in .NET, Angular,
+            TypeScript, SQL, and Laravel, I focus on creating scalable solutions and
+            clean, maintainable code.
+          </p>
+        </div>
+        <aside class="col-md-4 col-12">
+          <h2 class="fs-4 fw-bold">Links</h2>
+          <nav class="mt-2">
+            <a href="https://github.com/yourusername" class="color-secondary" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="bi bi-github m-2 fs-5"></i>
+            </a>
+            <a href="mailto:youremail@example.com" class="color-secondary" aria-label="Email">
+              <i class="bi bi-envelope m-2 fs-5"></i>
+            </a>
+          </nav>
+        </aside>
+      </section>
+
+      <!-- Experience -->
+      <section class="row mt-4">
+        <div class="col-12">
+          <h2 class="fs-4 fw-bold">Experience</h2>
+          <div class="row" *ngFor="let experience of experiences">
+            <div class="col-6 color-secondary">
+              <time>{{ experience.from }} - {{ experience.to }}</time>
+            </div>
+            <div class="col-6 text-end">
+              <span>{{ experience.title }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="row mt-4">
+        <div class="col-12">
+          <h2 class="fs-4 fw-bold">Projects</h2>
+          <div class="row" *ngFor="let project of projects">
+            <div class="col-12 col-sm-4">
+              <strong>{{ project.name }}</strong>
+            </div>
+            <div class="col-12 col-sm-8 color-secondary text-sm-end">
+              <a [href]="project.website" target="_blank" rel="noopener" class="color-secondary">
+                {{ project.website }} <i class="bi bi-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stacks -->
+      <section class="row mt-4">
+        <div class="col-12 d-flex flex-column justify-content-center">
+          <h2 class="fs-4 fw-bold text-center">Tech Stacks</h2>
+          <div class="row">
+            <div class="col-4 col-sm-3 p-2 d-flex justify-content-center"
+                 *ngFor="let logo of logos; let i = index">
+              <img [src]="logo" [alt]="techNames[i]" width="60" class="img-fluid" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="row mt-4">
+    <div class="col-12">
+      <div class="footer">
+        <div class="row">
+          <div class="col-12 text-center py-3">
+            <small>© {{ currentYear }} Code Coffee | All rights reserved.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

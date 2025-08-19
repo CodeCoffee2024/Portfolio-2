@@ -1,0 +1,55 @@
+/* tech-scroller.component.scss */
+.scroller {
+  overflow: hidden;
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+}
+
+.scroller-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+/* duplicate logos side by side */
+.logo {
+  flex: 0 0 auto;
+  margin: 0 20px;
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.logo img:hover {
+  filter: grayscale(0%);
+}
+
+/* Seamless scroll */
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* fade at edges */
+.scroller {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 10%,
+    rgba(0,0,0,1) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,1) 10%,
+    rgba(0,0,0,1) 90%,
+    transparent 100%
+  );
+}

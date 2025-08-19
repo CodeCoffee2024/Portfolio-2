@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --background-color-light: #ffffff;
+  --text-color-light: #111111;
+  --text-color-secondary-light: #555555;
+
+  --background-color-dark: #111111;
+  --text-color-dark: #eceaeb;
+  --text-color-secondary-dark: #707371;
+}
+
+* {
+  font-family: 'Roboto', sans-serif !important;
+  font-style: normal;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+/* Theme toggle classes */
+body.theme-dark {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.theme-dark .color-secondary {
+  color: var(--text-color-secondary-dark);
+}
+
+body.theme-light .color-secondary {
+  color: var(--text-color-secondary-light);
+}
+
+/* Button style */
+.theme-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #444;
+  color: #fff;
+  font-size: 14px;
+}
