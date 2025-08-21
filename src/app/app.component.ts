@@ -10,6 +10,7 @@ export interface Project {
   apiRepo: string;
   description: string;
   image: string;
+  tags: string[];
 }
 @Component({
   selector: 'app-root',
@@ -69,31 +70,37 @@ export class AppComponent {
       uiRepo: 'https://github.com/CodeCoffee2024/BlogUI',
       apiRepo: 'https://github.com/CodeCoffee2024/BlogApi',
       description: 'A personal blog platform with Angular frontend and ASP.NET Core API for managing posts and user with RBAC modules.',
-      image: ''
+      image: '',
+      tags: ['Angular', 'Chart.js', 'Bootstrap 5', '.NET', 'EF Core', 'SQL']
     },{
       name: 'E-Commerce',
       uiRepo: 'https://github.com/CodeCoffee2024/e-commerce-frontend',
       apiRepo: 'https://github.com/CodeCoffee2024/e-commerce-backend',
       description: 'Full-stack e-commerce system with RBAC, reporting, basic settings for an e-commerce admin dashboard and client side UI.',
-      image: ''
+      image: '',
+      tags: ['Angular', 'Chart.js', 'Bootstrap 4', '.NET', 'EF Core', 'SQL']
     },{
       name: 'Admin Dashboard',
       uiRepo: 'https://github.com/CodeCoffee2024/admin-dashboard-v2',
       apiRepo: '',
       description: 'Responsive admin dashboard with analytics, charts, and management tools built using Angular.',
-      image: ''
+      image: '',
+      tags: ['Angular', 'Chart.js', 'Bootstrap 4']
+
     },{
       name: 'Capstone Title Generator',
       uiRepo: 'https://github.com/CodeCoffee2024/BlogUI',
       apiRepo: 'https://github.com/CodeCoffee2024/BlogApi',
       description: 'A tool for IT/CS students that generates creative and relevant capstone project title suggestions.',
-      image: ''
+      image: '',
+      tags: ['Angular', 'Chart.js', 'Bootstrap', 'Responsive UI']
     },{
       name: 'Weather Dashboard',
       uiRepo: 'https://github.com/CodeCoffee2024/weather-dashboard',
       apiRepo: '',
       description: 'Real-time weather dashboard fetching API data and displaying forecasts with interactive UI charts.',
-      image: ''
+      image: '',
+      tags: ['Angular', 'Chart.js', 'Bootstrap', 'Responsive UI']
     }];
   }
   logos: string[] = [

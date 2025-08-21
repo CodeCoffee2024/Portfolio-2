@@ -48,3 +48,40 @@ body.theme-light .color-secondary {
   color: #fff;
   font-size: 14px;
 }
+.projects h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Card respects theme */
+.projects .card {
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.projects .card:hover {
+  transform: translateY(-4px);
+}
+
+body.theme-dark .projects .card {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+/* Tags */
+.projects .badge {
+  background: rgba(0, 0, 0, 0.07);
+  color: inherit;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+body.theme-dark .projects .badge {
+  background: rgba(255, 255, 255, 0.15);
+}
