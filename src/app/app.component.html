@@ -30,12 +30,12 @@
           </div>
         </div>
         <div class="col-md-6 d-flex justify-content-center justify-content-md-end mt-2 mt-md-0">
-          <a href="tel:+1234567890" class="btn btn-success border rounded">
-            <i class="bi bi-phone me-2"></i>Contact Me
-          </a>
-    <button class="theme-toggle" (click)="switchTheme()">
-      {{ isDarkMode() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
-    </button>
+           <button (click)="downloadResume()" class="btn btn-success btn-sm border rounded">
+            <i class="bi bi-download me-2"></i>Download Resume
+          </button>
+          <button class="theme-toggle" (click)="switchTheme()">
+            {{ isDarkMode() ? '☀️ Light Mode' : '🌙 Dark Mode' }}
+          </button>
         </div>
       </header>
 
@@ -53,10 +53,10 @@
         <aside class="col-md-4 col-12">
           <h2 class="fs-4 fw-bold">Links</h2>
           <nav class="mt-2">
-            <a href="https://github.com/yourusername" class="color-secondary" target="_blank" rel="noopener" aria-label="GitHub">
+            <a href="https://github.com/CodeCoffee2024" class="color-secondary" target="_blank" rel="noopener" aria-label="GitHub">
               <i class="bi bi-github m-2 fs-5"></i>
             </a>
-            <a href="mailto:youremail@example.com" class="color-secondary" aria-label="Email">
+            <a href="mailto:code.coffee2024@gmail.com" class="color-secondary" aria-label="Email">
               <i class="bi bi-envelope m-2 fs-5"></i>
             </a>
           </nav>

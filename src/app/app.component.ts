@@ -128,4 +128,66 @@ export class AppComponent {
     'Typescript',
 
   ];
+  downloadResume() {
+    const pwd = prompt("Enter password to unlock resume:");
+
+
+    if (pwd) {
+      this.decryptResume(pwd).catch(() => alert("Wrong password"));
+    }
+
+  }
+  async decryptResume(password: string) {
+    const res = await fetch('assets/resume.enc');
+  if (!res.ok) throw new Error('Encrypted file not found');
+  const bytes = new Uint8Array(await res.arrayBuffer());
+
+  // Parse [salt|iv|tag|ciphertext]
+  const SALT_LEN = 16;
+  const IV_LEN = 12;
+  const TAG_LEN = 16;
+
+  const salt = bytes.slice(0, SALT_LEN);
+  const iv = bytes.slice(SALT_LEN, SALT_LEN + IV_LEN);
+  const tag = bytes.slice(SALT_LEN + IV_LEN, SALT_LEN + IV_LEN + TAG_LEN);
+  const ciphertext = bytes.slice(SALT_LEN + IV_LEN + TAG_LEN);
+
+  // Derive key with PBKDF2 (params must match Node)
+  const keyMaterial = await crypto.subtle.importKey(
+    'raw',
+    new TextEncoder().encode(password),
+    { name: 'PBKDF2' },
+    false,
+    ['deriveKey']
+  );
+
+  const key = await crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+    keyMaterial,
+    { name: 'AES-GCM', length: 256 },
+    false,
+    ['decrypt']
+  );
+
+  // WebCrypto expects ciphertext||tag
+  const ctPlusTag = new Uint8Array(ciphertext.length + tag.length);
+  ctPlusTag.set(ciphertext, 0);
+  ctPlusTag.set(tag, ciphertext.length);
+
+  const decrypted = await crypto.subtle.decrypt(
+    { name: 'AES-GCM', iv, tagLength: 128 },
+    key,
+    ctPlusTag
+  );
+
+  // Trigger download
+  const blob = new Blob([decrypted], { type: 'application/pdf' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'resume.pdf';
+  a.click();
+  URL.revokeObjectURL(url);
+  }
+
 }
