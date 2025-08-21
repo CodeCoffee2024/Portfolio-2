@@ -63,6 +63,33 @@
         </aside>
       </section>
 
+      <!-- Experience -->
+      <section class="row mt-4">
+        <div class="col-12">
+          <h2 class="fs-4 fw-bold">Experience</h2>
+          <div class="row" *ngFor="let experience of experiences">
+            <div class="col-6 color-secondary">
+              <time>{{ experience.from }} - {{ experience.to }}</time>
+            </div>
+            <div class="col-6 text-end">
+              <span>{{ experience.title }}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stacks -->
+      <section class="row mt-4">
+        <div class="col-12 d-flex flex-column justify-content-center">
+          <h2 class="fs-4 fw-bold text-center">Tech Stacks</h2>
+          <div class="row">
+            <div class="col-4 col-sm-3 p-2 d-flex justify-content-center"
+                 *ngFor="let logo of logos; let i = index">
+              <img [src]="logo" [alt]="techNames[i]" width="60" class="img-fluid" loading="lazy"/>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Projects -->
       <section class="row mt-4">
@@ -107,35 +134,6 @@
           </div>
         </div>
       </section>
-
-      <!-- Experience -->
-      <section class="row mt-4">
-        <div class="col-12">
-          <h2 class="fs-4 fw-bold">Experience</h2>
-          <div class="row" *ngFor="let experience of experiences">
-            <div class="col-6 color-secondary">
-              <time>{{ experience.from }} - {{ experience.to }}</time>
-            </div>
-            <div class="col-6 text-end">
-              <span>{{ experience.title }}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Tech Stacks -->
-      <section class="row mt-4">
-        <div class="col-12 d-flex flex-column justify-content-center">
-          <h2 class="fs-4 fw-bold text-center">Tech Stacks</h2>
-          <div class="row">
-            <div class="col-4 col-sm-3 p-2 d-flex justify-content-center"
-                 *ngFor="let logo of logos; let i = index">
-              <img [src]="logo" [alt]="techNames[i]" width="60" class="img-fluid" loading="lazy"/>
-            </div>
-          </div>
-        </div>
-      </section>
-
     </article>
   </main>
 
