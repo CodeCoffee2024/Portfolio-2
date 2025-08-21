@@ -63,6 +63,51 @@
         </aside>
       </section>
 
+
+      <!-- Projects -->
+      <section class="row mt-4">
+        <div class="col-12">
+          <h2 class="fs-4 fw-bold">Projects</h2>
+          <div class="row g-3">
+
+            <div class="col-12 col-md-6" *ngFor="let project of projects">
+              <div class="card shadow-sm h-100 border-0 rounded-3">
+                <img *ngIf="project.image"
+                    [src]="project.image"
+                    [alt]="project.name"
+                    class="card-img-top rounded-top"
+                    loading="lazy" />
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title fw-bold">{{ project.name }}</h5>
+                  <p class="card-text text-muted flex-grow-1">
+                    {{ project.description }}
+                  </p>
+                  <div class="d-flex flex-wrap gap-2 mt-3">
+
+                    <a *ngIf="project.uiRepo != ''"
+                      [href]="project.uiRepo"
+                      target="_blank"
+                      rel="noopener"
+                      class="btn btn-sm btn-outline-dark">
+                      <i class="bi bi-github me-1"></i> UI Repo
+                    </a>
+                    <a *ngIf="project.apiRepo != ''"
+                      [href]="project.apiRepo"
+                      target="_blank"
+                      rel="noopener"
+                      class="btn btn-sm btn-outline-success">
+                      <i class="bi bi-github me-1"></i> API Repo
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+
       <!-- Experience -->
       <section class="row mt-4">
         <div class="col-12">
@@ -73,23 +118,6 @@
             </div>
             <div class="col-6 text-end">
               <span>{{ experience.title }}</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section class="row mt-4">
-        <div class="col-12">
-          <h2 class="fs-4 fw-bold">Projects</h2>
-          <div class="row" *ngFor="let project of projects">
-            <div class="col-12 col-sm-4">
-              <strong>{{ project.name }}</strong>
-            </div>
-            <div class="col-12 col-sm-8 color-secondary text-sm-end">
-              <a [href]="project.website" target="_blank" rel="noopener" class="color-secondary">
-                {{ project.website }} <i class="bi bi-arrow-up-right"></i>
-              </a>
             </div>
           </div>
         </div>
