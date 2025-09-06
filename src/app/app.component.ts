@@ -8,6 +8,7 @@ export interface Project {
   name: string;
   uiRepo: string;
   apiRepo: string;
+  link?: string;
   description: string;
   image: string;
   tags: string[];
@@ -66,6 +67,14 @@ export class AppComponent {
   }
   get projects(): Project[] {
     return [{
+      name: 'KopiBudget - Personal Finance Tracker App',
+      uiRepo: 'https://github.com/CodeCoffee2024/KopiBudget',
+      apiRepo: 'https://github.com/CodeCoffee2024/KopiBudget',
+      link: 'https://kopi-budget-six.vercel.app/login',
+      description: 'A personal finance tracker built with Angular and ASP.NET Core to manage accounts, track expenses, and visualize financial data.',
+      image: '',
+      tags: ['Angular', 'Chart.js', 'Bootstrap 5', '.NET', 'EF Core', 'SQL', 'Docker', 'Github', 'Cercel']
+    },{
       name: 'Blog',
       uiRepo: 'https://github.com/CodeCoffee2024/BlogUI',
       apiRepo: 'https://github.com/CodeCoffee2024/BlogApi',
