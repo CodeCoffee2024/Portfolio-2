@@ -32,8 +32,12 @@
 
 /* Seamless scroll */
 @keyframes scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* fade at edges */
@@ -41,19 +45,19 @@
   mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0,0,0,1) 10%,
-    rgba(0,0,0,1) 90%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
     transparent 100%
   );
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
-    rgba(0,0,0,1) 10%,
-    rgba(0,0,0,1) 90%,
+    rgba(0, 0, 0, 1) 10%,
+    rgba(0, 0, 0, 1) 90%,
     transparent 100%
   );
-
-}.card {
+}
+.card {
   border-radius: 12px;
 
   h5 {
@@ -67,3 +71,17 @@
   }
 }
 
+.profile-img {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  opacity: 1;
+
+  &.ng-lazyloaded {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &:not([src]) {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
