@@ -41,6 +41,10 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             docker pull codecoffee2024/portfolio-ui:latest
-            docker stop portfolio-ui || true
-            docker rm portfolio-ui || true
+            if [ "$(docker ps -q -f name=portfolio-ui)" ]; then
+              docker stop portfolio-ui
+            fi
+            if [ "$(docker ps -aq -f name=portfolio-ui)" ]; then
+              docker rm portfolio-ui
+            fi
             docker run -d -p 80:80 --name portfolio-ui codecoffee2024/portfolio-ui:latest
