@@ -20,13 +20,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build Angular app
-        run: npm run build -- --base-href /portfolio-2/
+        run: npm run build -- --base-href /Portfolio-2/
 
       - name: Copy index.html as 404.html
         run: cp dist/portfolio-2/index.html dist/portfolio-2/404.html
